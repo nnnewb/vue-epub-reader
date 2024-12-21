@@ -1,16 +1,21 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter } from 'vue-router'
 
-import Ebook from '@/Ebook'
+import Ebook from '@/Ebook.vue'
+import { createMemoryHistory } from 'vue-router';
 
-Vue.use(Router)
+const routes = [
+  {
+    path: '/',
+    redirect: '/ebook'
+  }, {
+    path: '/ebook',
+    component: Ebook
+  },
+];
 
-export default new Router({
-    routes: [{
-        path: '/',
-        redirect: '/ebook'
-    }, {
-        path: '/ebook',
-        component: Ebook
-    }]
-})
+const router = createRouter({
+  history: createMemoryHistory(),
+  routes,
+});
+
+export default router;

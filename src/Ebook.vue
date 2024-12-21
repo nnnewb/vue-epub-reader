@@ -9,15 +9,15 @@
               <div class="right" @click="nextPage"></div>
           </div>
       </div>
-        <menu-bar :ifTitleAndMenuShow="ifTitleAndMenuShow" 
+        <menu-bar :ifTitleAndMenuShow="ifTitleAndMenuShow"
                 @getCurrentLocation="getCurrentLocation"
-                :fontSizeList = "fontSizeList" 
+                :fontSizeList = "fontSizeList"
                 :defaultFontSize="defaultFontSize"
-                @setFontSize="setFontSize" 
-                :themeList="themeList" 
+                @setFontSize="setFontSize"
+                :themeList="themeList"
                 :defaultTheme="defaultTheme"
-                @setTheme = "setTheme" 
-                :bookAvailable = "bookAvailable" 
+                @setTheme = "setTheme"
+                :bookAvailable = "bookAvailable"
                 @onProgressChange = "onProgressChange"
                 @jumpTo="jumpTo"
                 :navigation = "navigation"
@@ -26,12 +26,13 @@
         </menu-bar>
   </div>
 </template>
+
 <script>
-import TitleBar from '@/components/TitleBar'
-import MenuBar from '@/components/MenuBar'
+import TitleBar from '@/components/TitleBar.vue'
+import MenuBar from '@/components/MenuBar.vue'
 import Epub from 'epubjs'
 const DOWNLOAD_URL ='/static/三国演义.epub'
-global.epub = Epub
+// global.epub = Epub
 
 export default {
     components:{
@@ -197,7 +198,7 @@ export default {
             // 获取locations对象 epubjs的钩子函数实现
             this.book.ready.then(()=>{
                 this.navigation = this.book.navigation
-               
+
                 return this.book.locations.generate()
             }).then(result=>{
                 // console.log(result);
@@ -227,15 +228,15 @@ export default {
             z-index: 9;
             .left{
                 flex: 0 0 px2rem(100);
-                
+
             }
             .center{
                 flex: 1;
-                
+
             }
             .right{
                 flex: 0 0 px2rem(100);
-               
+
             }
         }
     }

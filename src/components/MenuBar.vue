@@ -1,4 +1,4 @@
-<template> 
+<template>
        <div class="menu-bar">
             <transition name="slide-up">
             <div class="menu-wrapper" :class="{'hide-box-shadow':ifSettingShow || !ifTitleAndMenuShow}" v-show="ifTitleAndMenuShow">
@@ -48,15 +48,15 @@
                 </div>
                 <div class="setting-progress" v-else-if="showTag === 2">
                    <div class="progress-wrapper">
-                        <input class="progress" 
-                        type="range" 
-                        max="100" 
+                        <input class="progress"
+                        type="range"
+                        max="100"
                         min = "0"
-                        step = "1" 
+                        step = "1"
                         @change="onProgressChange($event.target.value)"
-                        @input="onProgressInput($event.target.value)" 
+                        @input="onProgressInput($event.target.value)"
                         :value="progress"
-                        :disabled="!bookAvailable" 
+                        :disabled="!bookAvailable"
                         ref="progress">
                    </div>
                    <div class="text-wrapper">
@@ -80,7 +80,7 @@
        </div>
 </template>
 <script>
-import ContentView from '@/components/Content'
+import ContentView from '@/components/Content.vue'
 export default {
     components:{
         ContentView
@@ -122,7 +122,7 @@ export default {
                 this.$refs.progress.style.backgroundSize = `${this.progress}% 100%`
                 }
             },
-            deep:true   
+            deep:true
         }
     },
     methods:{
@@ -190,7 +190,7 @@ export default {
                     font-size:px2rem(18);
                 }
             }
-        }        
+        }
         .setting-wrapper{
             position: absolute;
             bottom: px2rem(48);
@@ -239,7 +239,7 @@ export default {
                             flex: 0 0 0;
                             width: 0;
                             height: px2rem(7);
-                            border-left: px2rem(1) solid #ccc; 
+                            border-left: px2rem(1) solid #ccc;
                             .point{
                                 position: absolute;
                                 top:px2rem(-8);
@@ -280,7 +280,7 @@ export default {
                             border:none
                         }
                     }
-                
+
                     .text{
                         flex:0 0 px2rem(20);
                         font-size:px2rem(14);
